@@ -1,0 +1,99 @@
+Sidebar
+🎵 Dashboard
+👥 Users
+🎤 Artists
+🎶 Songs
+📀 Albums
+📋 Playlists
+💳 Subscriptions
+📈 Analytics
+🚩 Reports
+⚙️ Settings
+Dashboard tổng quan
+Tổng người dùng      : 650 triệu
+Premium Users        : 280 triệu
+Bài hát trong hệ thống: 100+ triệu
+Nghệ sĩ              : 11+ triệu
+Quản lý người dùng
+
+Bảng dữ liệu:
+
+ID   Name      Email            Plan
+1    Huy       huy@gmail.com    Premium
+2    Nam       nam@gmail.com    Free
+
+Chức năng:
+
+Khóa tài khoản
+Nâng cấp/hạ cấp gói
+Xem lịch sử hoạt động
+Quản lý nghệ sĩ
+Artist             Followers
+Taylor Swift       120M
+Ed Sheeran         95M
+
+Có thể:
+
+Duyệt nghệ sĩ xác minh
+Chỉnh sửa hồ sơ
+Theo dõi lượt nghe
+Quản lý bài hát
+Song                Streams
+Shape of You        4.2B
+Blinding Lights     4.8B
+
+Chức năng:
+
+Thêm bài hát
+Gỡ bài hát vi phạm bản quyền
+Cập nhật metadata
+Thống kê (Analytics)
+
+Đây là phần rất quan trọng của Spotify.
+
+Ví dụ:
+
+Top Songs Today
+Top Artists
+Streams per Day
+Revenue per Month
+
+Biểu đồ:
+
+Streams
+ ^
+ |
+ |      *
+ |    *   *
+ |  *       *
+ +---------------->
+          Time
+Quản lý gói Premium
+User       Plan        Expire
+Huy        Premium     20/07/2026
+Nam        Student     01/08/2026
+Báo cáo vi phạm
+
+Người dùng có thể báo cáo:
+
+Nội dung vi phạm bản quyền
+Podcast không phù hợp
+Tài khoản spam
+
+Admin sẽ xem và xử lý.
+
+Nếu bạn đang làm đồ án mô phỏng Spotify bằng HTML/CSS/JS
+
+Một giao diện Admin khá hợp lý sẽ là:
+
++---------------------------------------------------+
+| Header (Search, Admin Avatar, Notifications)      |
++------------+--------------------------------------+
+| Sidebar    |  Cards thống kê                      |
+| Dashboard  |                                      |
+| Users      |  Biểu đồ lượt nghe                   |
+| Artists    |                                      |
+| Songs      |  Bảng Top 10 bài hát                 |
+| Playlists  |                                      |
+| Premium    |                                      |
++------------+--------------------------------------+
