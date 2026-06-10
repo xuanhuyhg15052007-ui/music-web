@@ -1,0 +1,108 @@
+:root {
+  --bg: #050505;
+  --panel: rgba(28, 28, 28, 0.96);
+  --text: #f2f2f2;
+  --muted: #9a9a9a;
+  --accent: #1db954;
+  --accent-strong: #23b65f;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(29, 185, 84, 0.15), transparent 25%),
+    linear-gradient(180deg, #050505 0%, #090909 45%, #0c0c0c 100%);
+  color: var(--text);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.logout-wrapper {
+  width: min(100%, 520px);
+  padding: 24px;
+}
+
+.logout-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.24);
+  padding: 42px 32px;
+  text-align: center;
+}
+
+.logout-icon {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  font-size: 2.75rem;
+  background: rgba(29, 185, 84, 0.14);
+  border-radius: 50%;
+}
+
+.logout-card h1 {
+  margin: 0 0 14px;
+  font-size: 2rem;
+}
+
+.logout-card p {
+  margin: 0 0 28px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.logout-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: var(--accent);
+  color: #121212;
+  box-shadow: 0 16px 40px rgba(29, 185, 84, 0.24);
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 520px) {
+  .logout-actions {
+    flex-direction: row;
+  }
+}
