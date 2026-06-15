@@ -154,56 +154,7 @@
 
     <!-- Content area -->
     <div class="content-area" id="content-area">
-
-      <!-- Greeting -->
-      <div class="greeting-bar">
-        <h2 class="greeting-text" id="greeting-text">Chào buổi tối</h2>
-      </div>
-
-      <!-- Quick access grid -->
-      <div class="quick-grid" id="quick-grid">
-        <!-- Điền bởi JS -->
-        <div class="quick-item"><div class="quick-item-thumb skeleton"></div><div class="quick-item-name skeleton skeleton-line" style="flex:1;margin:0 16px 0 0"></div></div>
-        <div class="quick-item"><div class="quick-item-thumb skeleton"></div><div class="quick-item-name skeleton skeleton-line" style="flex:1;margin:0 16px 0 0"></div></div>
-        <div class="quick-item"><div class="quick-item-thumb skeleton"></div><div class="quick-item-name skeleton skeleton-line" style="flex:1;margin:0 16px 0 0"></div></div>
-        <div class="quick-item"><div class="quick-item-thumb skeleton"></div><div class="quick-item-name skeleton skeleton-line" style="flex:1;margin:0 16px 0 0"></div></div>
-        <div class="quick-item"><div class="quick-item-thumb skeleton"></div><div class="quick-item-name skeleton skeleton-line" style="flex:1;margin:0 16px 0 0"></div></div>
-        <div class="quick-item"><div class="quick-item-thumb skeleton"></div><div class="quick-item-name skeleton skeleton-line" style="flex:1;margin:0 16px 0 0"></div></div>
-      </div>
-
-      <!-- Trending section -->
-      <div class="section-header">
-        <h3 class="section-title">Đang thịnh hành</h3>
-        <span class="section-show-all" onclick="showSection('trending')">Hiển thị tất cả</span>
-      </div>
-      <div class="card-grid" id="trending-grid">
-        <!-- Skeleton -->
-        ${Array(5).fill(0).map(() => `
-          <div class="music-card">
-            <div class="music-card-thumb-wrap">
-              <div class="music-card-thumb skeleton"></div>
-            </div>
-            <div class="skeleton skeleton-line" style="margin-bottom:8px"></div>
-            <div class="skeleton skeleton-line short"></div>
-          </div>`).join('')}
-      </div>
-
-      <!-- Recently played -->
-      <div class="section-header">
-        <h3 class="section-title">Nghe gần đây</h3>
-        <span class="section-show-all">Hiển thị tất cả</span>
-      </div>
-      <div class="card-grid" id="recent-grid">
-        ${Array(5).fill(0).map(() => `
-          <div class="music-card">
-            <div class="music-card-thumb-wrap">
-              <div class="music-card-thumb skeleton"></div>
-            </div>
-            <div class="skeleton skeleton-line" style="margin-bottom:8px"></div>
-            <div class="skeleton skeleton-line short"></div>
-          </div>`).join('')}
-      </div>
-
+        
     </div><!-- end content-area -->
   </main>
 
@@ -555,10 +506,6 @@ function escHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 </script>
-
-<!-- ==================== ARTIST DATA & PAGE SCRIPT ==================== -->
-<script src="../artist/data/artists.js"></script>
-<script src="assets/js/artist-page.js"></script>
 
 </body>
 </html>

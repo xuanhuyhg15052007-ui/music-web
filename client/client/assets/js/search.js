@@ -287,4 +287,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// Thêm vào đầu hoặc trong DOMContentLoaded của search.js
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const query  = params.get('q');
+
+  if (query) {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+      searchInput.value = query;
+      // Ẩn genre, hiện kết quả
+      searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+  }
+});
+
 window.Search = Search;
