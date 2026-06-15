@@ -68,9 +68,8 @@ Hiển thị danh sách nhạc đề xuất.
 Hiển thị bảng xếp hạng Top Trending.
 Đăng ký và sử dụng gói Premium.
 Giao diện riêng cho User, Artist và Admin.
-⚙️ Backend
 
-Backend được phát triển bằng Node.js, Express.js và JavaScript, chịu trách nhiệm xử lý các nghiệp vụ của hệ thống và kết nối với cơ sở dữ liệu.
+⚙️ Backend
 
 Các chức năng chính bao gồm:
 
@@ -84,8 +83,6 @@ Thống kê lượt nghe và bài hát thịnh hành.
 Xử lý đề xuất nhạc dựa trên hành vi người dùng.
 Quản lý các gói Premium.
 🗄️ Cơ Sở Dữ Liệu
-
-Hệ thống sử dụng MySQL để lưu trữ và quản lý dữ liệu.
 
 Các bảng dữ liệu chính gồm:
 
