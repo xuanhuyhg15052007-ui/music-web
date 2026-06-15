@@ -53,75 +53,293 @@ spotify-clone/
 └── README.md                        📄 Hướng dẫn cài đặt & vận hành
 
 
-🎨 Frontend
+Trình bày việc sử dụng kiến trúc MVC cho dự án Spotify Clone 
 
-Frontend được phát triển bằng HTML, CSS và JavaScript, chịu trách nhiệm hiển thị giao diện và tương tác với người dùng.
+1. Giới thiệu 
 
-Các chức năng chính bao gồm:
+Dự án Spotify Clone là một ứng dụng web mô phỏng các chức năng cơ bản của Spotify như đăng ký, đăng nhập, tìm kiếm bài hát, xem nghệ sĩ, tạo danh sách phát và phát nhạc. Để xây dựng hệ thống có cấu trúc rõ ràng, dễ bảo trì và mở rộng, nhóm lựa chọn áp dụng kiến trúc Model – View – Controller (MVC). 
 
-Đăng ký, đăng nhập tài khoản.
-Quản lý hồ sơ cá nhân.
-Nghe nhạc trực tuyến.
-Tìm kiếm bài hát, album, nghệ sĩ và thể loại.
-Tạo và quản lý playlist.
-Hiển thị danh sách nhạc đề xuất.
-Hiển thị bảng xếp hạng Top Trending.
-Đăng ký và sử dụng gói Premium.
-Giao diện riêng cho User, Artist và Admin.
+ 
 
-⚙️ Backend
+2. Lý do lựa chọn kiến trúc MVC 
 
-Các chức năng chính bao gồm:
+Kiến trúc MVC giúp tách biệt giao diện, xử lý nghiệp vụ và dữ liệu thành các thành phần độc lập. Điều này mang lại các lợi ích: 
 
-Xác thực người dùng và phân quyền bằng JWT.
-Quản lý tài khoản User, Artist và Admin.
-Quản lý bài hát, album và thể loại.
-Xử lý upload nhạc từ Artist.
-Kiểm duyệt bài hát trước khi công khai trên hệ thống.
-Quản lý playlist và lịch sử nghe nhạc.
-Thống kê lượt nghe và bài hát thịnh hành.
-Xử lý đề xuất nhạc dựa trên hành vi người dùng.
-Quản lý các gói Premium.
-🗄️ Cơ Sở Dữ Liệu
+Dễ phát triển và bảo trì.  
 
-Các bảng dữ liệu chính gồm:
+Giảm sự phụ thuộc giữa các thành phần.  
 
-Users
-Artists
-Songs
-Albums
-Genres
-Playlists
-PlaylistSongs
-PremiumSubscriptions
-ListeningHistory
-SongApprovals
-👥 Phân Quyền Hệ Thống
+Hỗ trợ làm việc nhóm hiệu quả.  
 
-User
+Dễ mở rộng tính năng trong tương lai.  
 
-Đăng ký, đăng nhập.
-Quản lý hồ sơ cá nhân.
-Nghe nhạc.
-Tìm kiếm bài hát.
-Tạo playlist.
-Theo dõi nghệ sĩ.
-Nhận đề xuất nhạc.
-Sử dụng Premium.
+Phù hợp với các ứng dụng web có nhiều chức năng như Spotify.  
 
-Artist
+ 
 
-Toàn bộ quyền của User.
-Upload bài hát.
-Tạo Album.
-Quản lý bài hát và Album.
-Theo dõi thống kê lượt nghe.
+3. Tổng quan kiến trúc MVC 
 
-Admin
+MVC gồm ba thành phần chính: 
 
-Quản lý User.
-Quản lý Artist.
-Duyệt hoặc từ chối bài hát.
-Quản lý Album và Thể loại.
-Quản lý Premium.
-Theo dõi thống kê toàn hệ thống
+Model 
+
+Model chịu trách nhiệm quản lý dữ liệu và tương tác với cơ sở dữ liệu. 
+
+Trong Spotify Clone, Model quản lý: 
+
+Người dùng (User)  
+
+Bài hát (Song)  
+
+Nghệ sĩ (Artist)  
+
+Album (Album)  
+
+Danh sách phát (Playlist)  
+
+Ví dụ: 
+
+Song Model 
+- Lấy danh sách bài hát 
+- Thêm bài hát 
+- Cập nhật bài hát 
+- Xóa bài hát 
+
+ 
+
+View 
+
+View là giao diện người dùng được xây dựng bằng: 
+
+HTML  
+
+CSS  
+
+JavaScript  
+
+Các View chính: 
+
+Trang chủ  
+
+Trang đăng nhập  
+
+Trang đăng ký  
+
+Trang tìm kiếm  
+
+Trang nghệ sĩ  
+
+Trang playlist  
+
+Thanh phát nhạc  
+
+View chỉ hiển thị dữ liệu và gửi yêu cầu đến Controller. 
+
+ 
+
+Controller 
+
+Controller là cầu nối giữa View và Model. 
+
+Nhiệm vụ: 
+
+Nhận yêu cầu từ người dùng.  
+
+Xử lý logic nghiệp vụ.  
+
+Gọi Model để truy xuất dữ liệu.  
+
+Trả kết quả về View.  
+
+Ví dụ: 
+
+Người dùng nhấn nút "Tìm kiếm" 
+ 
+→ SearchController nhận yêu cầu 
+→ SongModel tìm dữ liệu trong database 
+→ Kết quả trả về Controller 
+→ Controller gửi dữ liệu cho View hiển thị 
+
+ 
+
+4. Sơ đồ hoạt động của hệ thống 
+
+Người dùng 
+      │ 
+      ▼ 
+    View 
+      │ 
+      ▼ 
+Controller 
+      │ 
+      ▼ 
+    Model 
+      │ 
+      ▼ 
+   MySQL 
+      │ 
+      ▼ 
+    Model 
+      │ 
+      ▼ 
+Controller 
+      │ 
+      ▼ 
+    View 
+
+ 
+
+5. Áp dụng MVC vào Spotify Clone 
+
+Chức năng đăng nhập 
+
+Login View 
+     │ 
+     ▼ 
+Auth Controller 
+     │ 
+     ▼ 
+User Model 
+     │ 
+     ▼ 
+Database 
+
+Quy trình: 
+
+Người dùng nhập tài khoản và mật khẩu.  
+
+Controller nhận dữ liệu.  
+
+Model kiểm tra thông tin trong cơ sở dữ liệu.  
+
+Nếu hợp lệ, Controller cho phép đăng nhập.  
+
+Giao diện chuyển sang trang chủ.  
+
+ 
+
+Chức năng xem danh sách bài hát 
+
+Home View 
+     │ 
+     ▼ 
+Song Controller 
+     │ 
+     ▼ 
+Song Model 
+     │ 
+     ▼ 
+Database 
+
+Quy trình: 
+
+Người dùng truy cập trang chủ.  
+
+Controller yêu cầu danh sách bài hát.  
+
+Model truy vấn dữ liệu từ MySQL.  
+
+Dữ liệu được trả về giao diện.  
+
+ 
+
+Chức năng tạo playlist 
+
+Playlist View 
+       │ 
+       ▼ 
+Playlist Controller 
+       │ 
+       ▼ 
+Playlist Model 
+       │ 
+       ▼ 
+Database 
+
+Quy trình: 
+
+Người dùng nhập tên playlist.  
+
+Controller nhận yêu cầu tạo mới.  
+
+Model lưu playlist vào cơ sở dữ liệu.  
+
+Giao diện cập nhật danh sách playlist.  
+
+ 
+
+6. Cấu trúc thư mục dự án 
+
+spotify-clone/ 
+│ 
+├── public/ 
+│   ├── index.html 
+│   ├── login.html 
+│   ├── register.html 
+│   ├── css/ 
+│   ├── js/ 
+│   └── images/ 
+│ 
+├── controllers/ 
+│   ├── authController.js 
+│   ├── songController.js 
+│   ├── playlistController.js 
+│ 
+├── models/ 
+│   ├── User.js 
+│   ├── Song.js 
+│   ├── Playlist.js 
+│   └── Artist.js 
+│ 
+├── routes/ 
+│   ├── authRoutes.js 
+│   ├── songRoutes.js 
+│   └── playlistRoutes.js 
+│ 
+├── config/ 
+│   └── db.js 
+│ 
+├── database/ 
+│   └── spotify.sql 
+│ 
+└── app.js 
+
+ 
+
+7. Ưu điểm của MVC trong dự án 
+
+Dễ bảo trì 
+
+Khi thay đổi giao diện chỉ cần chỉnh sửa View mà không ảnh hưởng đến Model hoặc Controller. 
+
+Dễ mở rộng 
+
+Có thể bổ sung: 
+
+Yêu thích bài hát  
+
+Theo dõi nghệ sĩ  
+
+Gói Premium  
+
+Lịch sử nghe nhạc  
+
+mà không cần thay đổi toàn bộ hệ thống. 
+
+Hỗ trợ làm việc nhóm 
+
+Mỗi thành viên có thể phụ trách một phần: 
+
+Frontend (View)  
+
+Backend (Controller)  
+
+Database (Model)  
+
+giúp tăng hiệu quả phát triển. 
+
+Tái sử dụng mã nguồn 
+
+Các Model và Controller có thể được sử dụng cho nhiều giao diện khác nhau. 
+
+
