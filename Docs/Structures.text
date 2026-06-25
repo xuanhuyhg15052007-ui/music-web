@@ -1,0 +1,63 @@
+SpotifyClone.Web/
+├── Controllers/         # Xử lý các request từ Frontend (Views hoặc API)
+├── Models/              # Các ViewModel (dữ liệu hiển thị lên View)
+├── Views/               # HTML/Razor templates
+├── wwwroot/             # [FRONTEND THUẦN]
+│   ├── css/             # style.css, main.css
+│   ├── js/              # app.js, player.js, api.js (Vanilla JS)
+│   └── images/          # Logo, icons
+├── Data/                # [DATABASE]
+│   ├── ApplicationDbContext.cs  # Kết nối SQL Server qua EF Core
+│   └── Migrations/      # Lưu lịch sử thay đổi cấu trúc bảng
+├── Models/              # [DOMAIN ENTITIES]
+│   ├── User.cs
+│   ├── Song.cs
+│   └── Playlist.cs
+├── Services/            # [BACKEND LOGIC]
+│   ├── IAuthService.cs
+│   ├── AuthService.cs
+│   └── SpotifyService.cs
+└── appsettings.json     # Chứa ConnectionString tới SQL Server
+
+
+
+Hướng dẫn thiết lập chi tiết
+1. Cấu hình Database (SQL Server)
+Trong file appsettings.json, bạn cấu hình kết nối tới SQL Server tại máy local:
+
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=SpotifyCloneDb;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}
+
+Bạn sử dụng Entity Framework Core để tạo các bảng (Song, User, Playlist) từ các class trong thư mục Models thông qua lệnh Add-Migration và Update-Database.
+
+
+2. Phân tách Backend & Frontend
+Backend (ASP.NET Core):
+
+Sử dụng Controllers để trả về các View (Razor) hoặc các JSON API nếu bạn muốn Frontend giao tiếp qua fetch API.
+
+Tầng Services sẽ chứa logic xử lý nghiệp vụ (ví dụ: lấy danh sách bài hát từ DB, xác thực người dùng).
+
+Frontend (Vanilla JS trong wwwroot):
+
+Đây là nơi bạn đặt toàn bộ HTML, CSS và JS thuần.
+
+Khi người dùng bấm "Play", tệp wwwroot/js/player.js sẽ gọi API từ Controller thông qua fetch() hoặc axios.
+
+3. Các thành phần quan trọng cần lưu ý
+Authentication: Sử dụng Identity của ASP.NET Core để quản lý User (đăng ký/đăng nhập).
+
+Media Handling: Lưu đường dẫn (path) của file nhạc vào SQL Server, còn file âm thanh thực tế (.mp3) bạn có thể để trong thư mục wwwroot/audio/.
+
+Tại sao cấu trúc này hiệu quả?
+Trực quan: wwwroot là nơi bạn làm việc như một web tĩnh truyền thống, rất dễ kiểm soát CSS/JS.
+
+Thiết thực: Bạn tận dụng được hệ sinh thái bảo mật, quản lý user và kết nối database cực mạnh của ASP.NET Core mà không bị phụ thuộc vào các framework JS nặng nề (như React/Vue).
+
+Dễ mở rộng: Khi muốn nâng cấp, bạn chỉ cần thay thế các file trong wwwroot bằng một SPA (Single Page Application) mà không cần đụng tới logic ở Controller.
+
+
+
